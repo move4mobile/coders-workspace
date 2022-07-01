@@ -1,0 +1,21 @@
+<div class="badges-count">
+    <div class="badge" [matTooltip]="bronze.tooltip" [ngClass]="{'large': large}">
+        <mat-icon class="bronze" aria-hidden="false" aria-label="Bronze Badge Count">workspace_premium</mat-icon>
+        <span>{{ bronze.count }}</span>
+    </div>
+    
+    <div class="badge" [matTooltip]="silver.tooltip" [ngClass]="{'large': large}">
+        <mat-icon class="silver" aria-hidden="false" aria-label="Silver Badge Count">workspace_premium</mat-icon>
+        <span>{{ silver.count }}</span>
+    </div>
+
+    <div class="badge" [matTooltip]="gold.tooltip" [ngClass]="{'large': large}">
+        <mat-icon class="gold" aria-hidden="false" aria-label="Gold Badge Count">workspace_premium</mat-icon>
+        <span>{{ gold.count }}</span>
+    </div>
+
+    <div class="badge" [matTooltip]="platinum.tooltip" [ngClass]="{'large': large}">
+        <mat-icon class="platinum" aria-hidden="false" aria-label="Platinum Badge Count">workspace_premium</mat-icon>
+        <span>{{ platinum.count }}</span>
+    </div>
+</div>

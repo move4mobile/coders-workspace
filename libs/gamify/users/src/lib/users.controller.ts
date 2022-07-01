@@ -16,6 +16,11 @@ export class UsersController {
   me(@User() authUser: AuthUser) {
     return UserConverter.fromAuthUserModel(authUser);
   }
+
+  @Get('/')
+  async findAll() {
+    return (await this.usersService.findMany()).map(UserConverter.fromAuthUserModel);
+  }
   
   @Post('/:id/badges')
   @Roles(Role.ADMIN, Role.MODERATOR)

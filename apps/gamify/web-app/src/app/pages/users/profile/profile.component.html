@@ -43,27 +43,15 @@
                 </div>
                 <div>
                     <h2 style="margin-bottom: 8px;">Total badges per tier</h2>
-                    <div class="badges-count">
-                        <div class="badge large" matTooltip="Total amount of bronze badges obtained">
-                            <mat-icon class="bronze" aria-hidden="false" aria-label="Bronze Badge Count">workspace_premium</mat-icon>
-                            <span>{{ stats.bronzeBadges }}</span>
-                        </div>
-                        
-                        <div class="badge large" matTooltip="Total amount of silver badges obtained">
-                            <mat-icon class="silver" aria-hidden="false" aria-label="Silver Badge Count">workspace_premium</mat-icon>
-                            <span>{{ stats.silverBadges }}</span>
-                        </div>
-                        
-                        <div class="badge large" matTooltip="Total amount of gold badges obtained">
-                            <mat-icon class="gold" aria-hidden="false" aria-label="Gold Badge Count">workspace_premium</mat-icon>
-                            <span>{{ stats.goldBadges }}</span>
-                        </div>
-                        
-                        <div class="badge large" matTooltip="Total amount of platinum badges obtained">
-                            <mat-icon class="platinum" aria-hidden="false" aria-label="Platinum Badge Count">workspace_premium</mat-icon>
-                            <span>{{ stats.platinumBadges }}</span>
-                        </div>
-                    </div>
+
+                    <coders-badges-count 
+                        [large]="true"
+                        [bronze]="{ count: stats.bronzeBadges, tooltip: 'Total amount of bronze badges obtained'}"
+                        [silver]="{ count: stats.silverBadges, tooltip: 'Total amount of silver badges obtained'}"
+                        [gold]="{ count: stats.goldBadges, tooltip: 'Total amount of gold badges obtained'}"
+                        [platinum]="{ count: stats.platinumBadges, tooltip: 'Total amount of platinum badges obtained'}"
+                        >
+                    </coders-badges-count>
                 </div>
             </div>
 
@@ -80,28 +68,14 @@
                                         <div style="display: flex; justify-content: space-between;">
                                             <h2 style="margin-bottom: 0;">{{ userApp.application.name }}</h2>
 
-                                            <div class="badges-count">
-                                                <div class="badge" matTooltip="Amount of bronze badges obtained within this game">
-                                                    <mat-icon class="bronze" aria-hidden="false" aria-label="Bronze Badge Count">workspace_premium</mat-icon>
-                                                    <span>{{ userApp.badgesCount.BRONZE }}</span>
-                                                </div>
-                                                
-                                                <div class="badge" matTooltip="Amount of silver badges obtained within this game">
-                                                    <mat-icon class="silver" aria-hidden="false" aria-label="Silver Badge Count">workspace_premium</mat-icon>
-                                                    <span>{{ userApp.badgesCount.SILVER }}</span>
-                                                </div>
-
-                                                <div class="badge" matTooltip="Amount of gold badges obtained within this game">
-                                                    <mat-icon class="gold" aria-hidden="false" aria-label="Gold Badge Count">workspace_premium</mat-icon>
-                                                    <span>{{ userApp.badgesCount.GOLD }}</span>
-                                                </div>
-
-                                                <div class="badge" matTooltip="Amount of platinum badges obtained within this game">
-                                                    <mat-icon class="platinum" aria-hidden="false" aria-label="Platinum Badge Count">workspace_premium</mat-icon>
-                                                    <span>{{ userApp.badgesCount.PLATINUM }}</span>
-                                                </div>
-                                                
-                                            </div>
+                                            <coders-badges-count 
+                                                [bronze]="{ count: userApp.badgesCount.BRONZE, tooltip: 'Amount of bronze badges obtained within this game'}"
+                                                [silver]="{ count: userApp.badgesCount.SILVER, tooltip: 'Amount of silver badges obtained within this game'}"
+                                                [gold]="{ count: userApp.badgesCount.GOLD, tooltip: 'Amount of gold badges obtained within this game'}"
+                                                [platinum]="{ count: userApp.badgesCount.PLATINUM, tooltip: 'Amount of platinum badges obtained within this game'}"
+                                                >
+                                            </coders-badges-count>
+                                            
                                         </div>
 
                                         <div>

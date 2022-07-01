@@ -1,0 +1,54 @@
+<div style="display: flex; justify-content: center">
+    <div style="width: 1280px">
+        <h1>People</h1>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <div style="display: flex; align-items: center; height: 48px; margin: 8px 0;">
+                        <img src="https://via.placeholder.com/50" style="height: 48px; width: 48px;" alt=""> 
+                        <span style="margin-left: 8px;"> {{ element.firstname }} {{ element.lastname }} </span>
+                    </div>
+                </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="stats">
+                <th mat-header-cell *matHeaderCellDef> Badge Stats </th>
+                <td mat-cell *matCellDef="let element">
+                    <!-- TODO get the stats from the user and pass them to the badges-count component -->
+                    <coders-badges-count 
+                        [bronze]="{ count: 1, tooltip: 'Amount of bronze badges obtained within this game'}"
+                        [silver]="{ count: 2, tooltip: 'Amount of silver badges obtained within this game'}"
+                        [gold]="{ count: 3, tooltip: 'Amount of gold badges obtained within this game'}"
+                        [platinum]="{ count: 4, tooltip: 'Amount of platinum badges obtained within this game'}"
+                        >
+                    </coders-badges-count>
+                </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="favorite-badges">
+                <th mat-header-cell *matHeaderCellDef> Favorite Badges </th>
+                <td mat-cell *matCellDef="let element">
+                    <div style="display: flex;">
+                        <!-- TODO get favorite badges from the user and replace these -->
+                        <coders-badge [small]="true" [tier]="badgeTier.BRONZE"></coders-badge>
+                        <coders-badge [small]="true" [tier]="badgeTier.GOLD"></coders-badge>
+                        <coders-badge [small]="true" [tier]="badgeTier.PLATINUM"></coders-badge>
+                    </div>
+                </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    <a mat-raised-button color="primary" [routerLink]="'/users/' + element.id">View profile</a>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+</div>

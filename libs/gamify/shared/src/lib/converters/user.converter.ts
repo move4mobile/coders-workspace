@@ -1,5 +1,7 @@
-import { AuthUser } from "../models";
+import { AuthUser, User } from "../models";
 import { IUser } from "../interfaces";
+import { plainToClass } from "class-transformer";
+import { PrismaUser } from "@gamify/data";
 
 export class UserConverter {
     static fromAuthUserModel(authUserModel: AuthUser): IUser {
@@ -11,5 +13,9 @@ export class UserConverter {
             lastname: authUserModel.lastname,
             moderationRole: authUserModel.moderationRole,
         }
+    }
+
+    static fromPrismaUser(prismaUser: PrismaUser): IUser {
+        return plainToClass(User, prismaUser);
     }
 }

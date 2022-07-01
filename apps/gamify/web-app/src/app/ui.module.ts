@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { BadgeComponent } from './shared/components/badge/badge.component';
 import { MessageBoxComponent } from './shared/components/message-box/message-box.component';
 import { UcfirstPipe } from './core/pipes/ucfirst.pipe';
+import { BadgesCountComponent } from './shared/components/badges-count/badges-count.component';
 
 
 const materialModules = [
@@ -52,12 +53,17 @@ const materialModules = [
     MatExpansionModule
 ];
 
+const components = [
+    BadgeComponent,
+    MessageBoxComponent,
+    JoinApplicationButtonComponent,
+    BadgesCountComponent
+]
+
 @NgModule({
     declarations: [
-        BadgeComponent,
-        MessageBoxComponent,
+        ...components,
         UcfirstPipe,
-        JoinApplicationButtonComponent
     ],
     imports: [
         CommonModule,
@@ -70,9 +76,7 @@ const materialModules = [
         ...materialModules,
 
         // Components
-        JoinApplicationButtonComponent,
-        BadgeComponent,
-        MessageBoxComponent,
+        ...components,
 
         // Pipes
         UcfirstPipe,

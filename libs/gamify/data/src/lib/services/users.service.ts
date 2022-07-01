@@ -13,6 +13,10 @@ export class UsersService {
         });
     }
 
+    findMany() {
+        return this.data.user.findMany();
+    }
+
     assignBadgeToUser(userId: number, badgeId: number) {
         return this.data.userBadge.create({
             data: {
