@@ -37,7 +37,7 @@
     "cache-manager": "^4.1.0",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.2",
-    "firebase-admin": "^11.0.0",
+    "firebase-admin": "^11.0.1",
     "google-spreadsheet": "^3.3.0",
     "graphql": "^15.8.0",
     "graphql-tools": "^8.3.1",
